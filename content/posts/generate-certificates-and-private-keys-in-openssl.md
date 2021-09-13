@@ -1,8 +1,15 @@
 ---
+author: "arnavyc"
 title: "Generate Certificates and Private Keys in OpenSSL"
+description: "This post shows how to generate certificates and private keys in OpenSSL"
+categories:
+- OpenSSL
+- Shell
 date: 2021-09-13T09:59:37+05:30
 draft: false
 ---
+
+This post shows how to generate certificates and private keys in OpenSSL.
 
 # Installation
 
