@@ -1,0 +1,17 @@
+baseURL = 'https://arnavyc.github.io'
+languageCode = 'en-us'
+title = 'arnavyc'
+copyright = 'Copyright 2021 arnavyc <arnavyc@outlook.com>'
+
+enableRobotsTXT = true
+
+[markup.highlight]
+codeFences = true
+noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = true  # enable raw HTML in Markdown
+
+[module]
+[[module.imports]]
+  path = 'github.com/cntrump/hugo-notepadium'
