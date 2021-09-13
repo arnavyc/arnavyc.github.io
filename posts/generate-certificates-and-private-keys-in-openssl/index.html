@@ -4,7 +4,8 @@
 <meta name=twitter:title content="Generate Certificates and Private Keys in OpenSSL"><body><section id=header>
 <div class="header wrap"><span class="header left-side"><a class="site home" href=/><span class="site name">arnavyc</span></a></span>
 <span class="header right-side"></span></div></section><section id=content><div class=article-container><section class="article header">
-<h1 class="article title">Generate Certificates and Private Keys in OpenSSL</h1><p class="article date">2021-09-13</p></section><article class="article markdown-body"><h1 id=installation>Installation</h1>
+<h1 class="article title">Generate Certificates and Private Keys in OpenSSL</h1><p class="article date">2021-09-13</p></section><article class="article markdown-body"><p>This post shows how to generate certificates and private keys in OpenSSL.</p>
+<h1 id=installation>Installation</h1>
 <p>Install OpenSSL command line tools, using your favorite package manager.</p>
 <h2 id=for-arch-linux>For Arch Linux</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ sudo pacman -S openssl
@@ -36,7 +37,7 @@
 </code></pre></div><p>For the certificate, you do not need to prevent read access to other users. However, you would want to make it read-only. For that, run the command:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ <span class=c1># (or pubkey.csr.pem if you generated a certificate request)</span>
 $ chmod <span class=m>444</span> pubkey.pem
-</code></pre></div></article></div>
+</code></pre></div></article><section class="article labels"><a class=category href=/categories/openssl/>OpenSSL</a><a class=category href=/categories/shell/>Shell</a></section></div>
 <div class="article bottom"><section class="article navigation"><p><a class=link href=/posts/test-post/><span class="iconfont icon-article"></span>Test Post</a></p></section></div></section><section id=footer><div class=footer-wrap>
 <p class=copyright>Copyright 2021 arnavyc <arnavyc@outlook.com></p>
 <p class=powerby><span>Powered by </span><a href=https://gohugo.io target=_blank>Hugo</a><span> and the </span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank>Notepadium</a></p></div></section></body>

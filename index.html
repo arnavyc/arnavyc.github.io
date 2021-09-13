@@ -4,11 +4,10 @@
 <meta name=twitter:title content="arnavyc"><body><section id=header>
 <div class="header wrap"><span class="header left-side"><a class="site home" href=/><span class="site name">arnavyc</span></a></span>
 <span class="header right-side"></span></div></section><section id=content><ul class="note list"><li class=item><a class=note href=/posts/generate-certificates-and-private-keys-in-openssl/>
-<p class="note title">Generate Certificates and Private Keys in OpenSSL</p><p class="note date">2021-09-13</p><p class="note content">Installation Install OpenSSL command line tools, using your favorite package manager.
+<p class="note title">Generate Certificates and Private Keys in OpenSSL</p><p class="note date">2021-09-13</p><p class="note content">This post shows how to generate certificates and private keys in OpenSSL.
+Installation Install OpenSSL command line tools, using your favorite package manager.
 For Arch Linux $ sudo pacman -S openssl Key Generation RSA Keys To generate RSA private keys, run the following command:
-$ openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:&lt;num_bits> -out privkey.pem replacing &lt;num_bits> with number of bits you want for RSA key. Example: 2048 for a RSA 2048 key.
-To generate a self-signed certificate, run the following command:
-$ openssl req -new -x509 -days &lt;days> -key privkey.<span class=mldr>&mldr;</span></p></a></li><li class=item><a class=note href=/posts/test-post/>
+$ openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:&lt;num_bits> -out privkey.pem replacing &lt;num_bits> with number of bits you want for RSA key. Example: 2048 for a RSA 2048 key.<span class=mldr>&mldr;</span></p></a><p class="note labels"><a class=category href=/categories/openssl/>OpenSSL</a><a class=category href=/categories/shell/>Shell</a></p></li><li class=item><a class=note href=/posts/test-post/>
 <p class="note title">Test Post</p><p class="note date">2021-09-13</p><p class="note content">This is a test post.</p></a></li></ul></section><section id=footer><div class=footer-wrap>
 <p class=copyright>Copyright 2021 arnavyc <arnavyc@outlook.com></p>
 <p class=powerby><span>Powered by </span><a href=https://gohugo.io target=_blank>Hugo</a><span> and the </span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank>Notepadium</a></p></div></section></body>
