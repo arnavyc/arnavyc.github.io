@@ -1,10 +1,13 @@
 name: Deploy GitHub Pages
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "Linting & formatting code & content"
     branches:
       - main
-    pull_request:
+    types:
+      - completed
 
 jobs:
   deploy-gh-pages:
