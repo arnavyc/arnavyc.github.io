@@ -41,5 +41,5 @@ pre-commit:
   parallel: true
   commands:
     formatter:
-      glob: "*.{md,mdx}"
-      run: npx prettier {staged_files}
+      glob: "*.{md,mdx,json,json5,yaml,yml}"
+      run: npx prettier -c {staged_files}
