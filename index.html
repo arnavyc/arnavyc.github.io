@@ -3,7 +3,11 @@
 <meta name=supported-color-schemes content="light dark"><title>arnavyc</title><link rel=stylesheet href=/css/core.min.096bf5b249a34741851e0991f49d96d5b4c36ae864b262626dc14350a35f135533b42d31ea866be908fe3db5437120c2.css integrity=sha384-CWv1skmjR0GFHgmR9J2W1bTDauhksmJibcFDUKNfE1UztC0x6oZr6Qj+PbVDcSDC><link rel=alternate type=application/rss+xml href=/index.xml title=arnavyc><meta name=twitter:card content="summary">
 <meta name=twitter:title content="arnavyc"><body><section id=header>
 <div class="header wrap"><span class="header left-side"><a class="site home" href=/><span class="site name">arnavyc</span></a></span>
-<span class="header right-side"></span></div></section><section id=content><ul class="note list"><li class=item><a class=note href=/posts/generate-certificates-and-private-keys-in-openssl/>
+<span class="header right-side"></span></div></section><section id=content><ul class="note list"><li class=item><a class=note href=/posts/remove-microsoft-store-apps-from-user-account-and-the-system/>
+<p class="note title">Remove Microsoft Store apps from User Account and the System</p><p class="note date">2021-09-13</p><p class="note content">This post shows how to remove Microsoft Store apps form User Account and the System.
+Provisioned Apps Get list of provisioned Microsoft Store apps To get list of all provisioned apps, run the following command in PowerShell (or PowerShell Core):
+$ Get-ProvisionedAppxPackage -Online Remove provisioned apps you don&rsquo;t require To remove unwanted provisioned apps, run the following command in an elevated PowerShell (or PowerShell Core):
+$ Remove-ProvisionedAppxPackage -Online -PackageName &lt;Package Name> replacing &lt;Package Name> with the name of package you want to remove.<span class=mldr>&mldr;</span></p></a><p class="note labels"><a class=category href=/categories/windows/>Windows</a><a class=category href=/categories/powershell/>PowerShell</a></p></li><li class=item><a class=note href=/posts/generate-certificates-and-private-keys-in-openssl/>
 <p class="note title">Generate Certificates and Private Keys in OpenSSL</p><p class="note date">2021-09-13</p><p class="note content">This post shows how to generate certificates and private keys in OpenSSL.
 Installation Install OpenSSL command line tools, using your favorite package manager.
 For Arch Linux $ sudo pacman -S openssl Key Generation RSA Keys To generate RSA private keys, run the following command:
