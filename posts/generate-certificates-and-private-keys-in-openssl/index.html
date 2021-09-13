@@ -1,0 +1,43 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=generator content="Hugo 0.88.1"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=color-scheme content="light dark">
+<meta name=supported-color-schemes content="light dark"><title>Generate Certificates and Private Keys in OpenSSL&nbsp;&ndash;&nbsp;arnavyc</title><link rel=stylesheet href=/css/core.min.096bf5b249a34741851e0991f49d96d5b4c36ae864b262626dc14350a35f135533b42d31ea866be908fe3db5437120c2.css integrity=sha384-CWv1skmjR0GFHgmR9J2W1bTDauhksmJibcFDUKNfE1UztC0x6oZr6Qj+PbVDcSDC><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Generate Certificates and Private Keys in OpenSSL"><body><section id=header>
+<div class="header wrap"><span class="header left-side"><a class="site home" href=/><span class="site name">arnavyc</span></a></span>
+<span class="header right-side"></span></div></section><section id=content><div class=article-container><section class="article header">
+<h1 class="article title">Generate Certificates and Private Keys in OpenSSL</h1><p class="article date">2021-09-13</p></section><article class="article markdown-body"><h1 id=installation>Installation</h1>
+<p>Install OpenSSL command line tools, using your favorite package manager.</p>
+<h2 id=for-arch-linux>For Arch Linux</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ sudo pacman -S openssl
+</code></pre></div><h1 id=key-generation>Key Generation</h1>
+<h2 id=rsa-keys>RSA Keys</h2>
+<p>To generate RSA private keys, run the following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:&lt;num_bits&gt; -out privkey.pem
+</code></pre></div><p>replacing <code>&lt;num_bits></code> with number of bits you want for RSA key. Example: <code>2048</code> for a <code>RSA 2048</code> key.</p>
+<p>To generate a self-signed certificate, run the following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ openssl req -new -x509 -days &lt;days&gt; -key privkey.pem -out pubkey.pem
+</code></pre></div><p>replacing <code>&lt;days></code> with desired number of days after which the certificate expires.</p>
+<p>To generate a certificate request, run:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ openssl req -new -sha256 -key privkey.pem -out pubkey.csr.pem
+</code></pre></div><p>You can also generate both RSA private key and certificate request (or self-signed certificate) by running the following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ openssl req -new -sha256 -newkey rsa:4096 -keyout privkey.pem -out pubkey.csr.pem
+</code></pre></div><p>Replacing <code>'-sha256'</code> with <code>'-x509 -days &lt;days>'</code> and <code>pubkey.csr.pem</code> with <code>pubkey.pem</code>, where <code>&lt;days></code> is number of days for which certificate is valid, to generate a self-signed certificate.</p>
+<h2 id=nist-curves>NIST curves</h2>
+<p>To generate private keys with NIST curves, run the command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:&lt;NIST name&gt; -pkeyopt ec_param_enc:named_curve -out privkey.pem
+</code></pre></div><p>Replacing <code>&lt;NIST name></code> for <code>'P-256'</code>, <code>'P-384'</code> or <code>'P-521'</code> (without quotes) for generating <code>P-256</code>, <code>P-384</code> or <code>P-521</code> private key respectively.</p>
+<p>To generate a self-signed certificate, run the command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ openssl req -new -x509 -days &lt;days&gt; -key privkey.pem -out pubkey.pem
+</code></pre></div><p>Replacing <code>&lt;days></code> for number of days for which certificate is valid.</p>
+<p>To generate a certificate request, run the command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ openssl req -new -sha256 -key privkey.pem -out pubkey.pem
+</code></pre></div><h1 id=after-generation>After Generation</h1>
+<p>You should make the private key read-only and prevent read access to other users. For that, run the command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ chmod <span class=m>400</span> privkey.pem
+</code></pre></div><p>For the certificate, you do not need to prevent read access to other users. However, you would want to make it read-only. For that, run the command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>$ <span class=c1># (or pubkey.csr.pem if you generated a certificate request)</span>
+$ chmod <span class=m>444</span> pubkey.pem
+</code></pre></div></article></div>
+<div class="article bottom"><section class="article navigation"><p><a class=link href=/posts/test-post/><span class="iconfont icon-article"></span>Test Post</a></p></section></div></section><section id=footer><div class=footer-wrap>
+<p class=copyright>Copyright 2021 arnavyc <arnavyc@outlook.com></p>
+<p class=powerby><span>Powered by </span><a href=https://gohugo.io target=_blank>Hugo</a><span> and the </span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank>Notepadium</a></p></div></section></body>
+</html>
